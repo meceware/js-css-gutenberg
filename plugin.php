@@ -1,23 +1,18 @@
 <?php
 /**
- * Plugin Name: mcw-js-css-gutenberg — CGB Gutenberg Block Plugin
- * Plugin URI: https://github.com/ahmadawais/create-guten-block/
- * Description: mcw-js-css-gutenberg — is a Gutenberg plugin created via create-guten-block.
- * Author: mrahmadawais, maedahbatool
- * Author URI: https://AhmadAwais.com/
- * Version: 1.0.0
- * License: GPL2+
- * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
- *
- * @package CGB
- */
+ * Plugin Name: Custom JS and CSS for Gutenberg
+ * Plugin URI: http://www.meceware.com/fp-js-css-gutenberg/
+ * Author: Mehmet Celik
+ * Author URI: http://www.meceware.com/
+ * Version: 0.0.1
+ * Description: Add custom Javascript and CSS code to the page using Gutenberg.
+ * Text Domain: mcw_js_css_gutenberg
+**/
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * Block Initializer.
- */
+// Block Initializer
 require_once plugin_dir_path( __FILE__ ) . 'src/init.php';
