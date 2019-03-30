@@ -1,6 +1,6 @@
 ## TODO
 
-* Readme guncellenecek.
+* Documentation'da buy kismi guncellenecek.
 
 ## Bug fixes
 
