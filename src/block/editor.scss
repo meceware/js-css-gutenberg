@@ -1,15 +1,50 @@
-/**
- * #.# Editor Styles
- *
- * CSS for just Backend enqueued after style.scss
- * which makes it higher in priority.
- */
+// Raw Textarea
+@import '../components/raw-textarea/raw-textarea';
+// Modal
+@import '../components/modal/modal';
 
-.wp-block-cgb-block-mcw-js-css-gutenberg  {
-  background: $green;
-  border: 0.2rem solid $black;
-  color: $black;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem;
+
+.mcw-js-css-wrapper {
+  position: relative;
+  display: block;
+  padding: 10px 20px;
+  border: 1px dashed #ddd;
+  background: #fcfcfc;
+  cursor: pointer;
+
+  .mcw-js-css-selector {
+    position: relative;
+    display: block;
+    text-align: center;
+    padding: 0 40px;
+
+    font-weight: bold;
+    font-size: 1em;
+    line-height: 36px;
+    position: relative;
+    color: #555;
+  }
+
+  .mcw-js-css-selector-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 20px;
+
+    svg {
+      min-width: 20px;
+      min-height: 20px;
+      max-width: 36px;
+      max-height: 36px;
+      display: block;
+    }
+  }
+}
+
+.mcw-js-css-desc {
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: -1.5em !important;
 }
