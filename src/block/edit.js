@@ -1,3 +1,5 @@
+// Import Base64
+import { Base64 } from 'js-base64';
 // Import CSS Raw Textarea Control
 import RawCSSTextareaControl from '../components/raw-textarea/raw-css-textarea';
 // Import JS Raw Textarea Control
@@ -311,8 +313,8 @@ class CustomJsAndCssEdit extends Component {
               label = { BlockAttributes.meta.label }
               beginning = { `<meta` }
               ending = { `/>` }
-              value = { meta }
-              onChange = { ( value ) => setAttributes( { meta: value } ) }
+              value = { Base64.decode( meta ) }
+              onChange = { ( value ) => setAttributes( { meta: Base64.encode( value ) } ) }
             />
           </BlockWithDescription>
         ) }

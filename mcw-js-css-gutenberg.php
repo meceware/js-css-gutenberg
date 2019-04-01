@@ -380,7 +380,7 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
 
       $output = '';
       foreach ( $tags as $tag ) {
-        $output .= '<meta ' . $tag . '/>';
+        $output .= '<meta ' . base64_decode( $tag ) . '/>';
       }
 
       echo $output;
