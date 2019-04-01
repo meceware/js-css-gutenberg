@@ -1,6 +1,6 @@
 # [Custom JS and CSS for Gutenberg](https://www.meceware.com/plugins/docs/custom-js-css-gutenberg/)
 
-* Easily add your code anywhere on your Wordpress page.
+* Easily add your code anywhere on your WordPress page.
 
   * **Javascript**
     * Between `<head>` and `</head>` tags.

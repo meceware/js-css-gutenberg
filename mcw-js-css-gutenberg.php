@@ -132,7 +132,7 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
 		}
 
 		public function OnRenderCallback( $attributes, $content ) {
-      // TODO: A Bug with Gutenberg and Wordpress that the content is not rendered right
+      // TODO: A Bug with Gutenberg and WordPress that the content is not rendered right
       // & char is encoded as &amp; at the output. Until it is fixed, this function callback is necessary.
       $content = wp_specialchars_decode( $content /* , ENT_QUOTES */ );
       return $content;
