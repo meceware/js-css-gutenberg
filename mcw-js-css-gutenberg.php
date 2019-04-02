@@ -319,7 +319,7 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
 
       $css = '';
       foreach ( $styles as $style ) {
-        $css .= base64_decode( $style );
+        $css .= $this->Decode( $style );
       }
 
       if ( ! empty( $css ) ) {
@@ -338,7 +338,7 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
 
       $js = '';
       foreach ( $scripts as $script ) {
-        $js .= base64_decode( $script );
+        $js .= $this->Decode( $script );
       }
 
       if ( ! empty( $js ) ) {
@@ -361,7 +361,7 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
         if ( $enabled ) {
           $param = $this->GetFieldValue( $attr, $meta );
           if ( isset( $param ) && ! empty( $param ) ) {
-            $output[] = base64_decode( $param );
+            $output[] = $this->Decode( $param );
           }
         }
       }
@@ -380,10 +380,14 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
 
       $output = '';
       foreach ( $tags as $tag ) {
-        $output .= '<meta ' . base64_decode( $tag ) . '/>';
+        $output .= '<meta ' . $this->Decode( $tag ) . '/>';
       }
 
       echo $output;
+    }
+
+    private function Decode( $str ) {
+      return base64_decode( strip_tags( $str ) );
     }
   }
 }
