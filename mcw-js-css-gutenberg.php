@@ -386,8 +386,48 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
       echo $output;
     }
 
-    private function Decode( $str ) {
-      return base64_decode( strip_tags( $str ) );
+    private function Decode( $input ) {
+      $codes = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+
+      // Strip tags first
+      $input = strip_tags( $input );
+
+      // Check if input is null
+      if ( $input == null ) {
+        return '';
+      }
+
+      // Check if the string is valid
+      if ( strlen( $input ) % 4 != 0 ) {
+        return '';
+      }
+
+      $decoded[] = ( ( strlen( $input ) * 3 ) / 4 ) - ( strrpos( $input,'=' ) > 0 ? ( strlen( $input ) - strrpos( $input, '=' ) ) : 0 );
+      $inChars = str_split( $input );
+      $j = 0;
+      $b = array();
+      for ( $i = 0; $i < count( $inChars ); $i += 4 ) {
+        $b[ 0 ] = strpos( $codes, $inChars[ $i ] );
+        $b[ 1 ] = strpos( $codes, $inChars[ $i + 1 ] );
+        $b[ 2 ] = strpos( $codes, $inChars[ $i + 2 ] );
+        $b[ 3 ] = strpos( $codes, $inChars[ $i + 3 ] );
+        $decoded[ $j++ ] = ( ( $b[ 0 ] << 2 ) | ( $b[ 1 ] >> 4 ) );
+
+        if ( $b[ 2 ] < 64 ) {
+          $decoded[ $j++ ] = ( ( $b[ 1 ] << 4 ) | ( $b[ 2 ] >> 2 ) );
+          if ( $b[ 3 ] < 64 ) {
+            $decoded[ $j++ ] = ( ( $b[ 2 ] << 6 ) | $b[ 3 ] );
+          }
+        }
+      }
+
+      $decodedStr = '';
+      for( $i = 0; $i < count( $decoded ); $i++ )
+      {
+        $decodedStr .= chr( $decoded[ $i ] );
+      }
+
+      return $decodedStr;
     }
   }
 }
