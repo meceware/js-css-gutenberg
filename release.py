@@ -57,14 +57,10 @@ def createArchive( output, dirFolders, dirFiles, version ):
 def getVersion( fileName ):
   with open( fileName, "r" ) as pluginFile:
     for  line in pluginFile:
-      matches = re.search( '\*.*version:?\s?(.*)$', line, re.IGNORECASE )
+      matches = re.search( r'\*.*version:?\s?(.*)$', line, re.IGNORECASE )
       if matches:
         return matches.group( 1 )
   return ''
-
-# Check if the release folder is present, remove it if necessary
-if os.path.isdir( dirRelease ):
-  shutil.rmtree( dirRelease )
 
 version = getVersion( 'mcw-js-css-gutenberg.php' )
 
