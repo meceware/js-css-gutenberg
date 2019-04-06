@@ -1,9 +1,3 @@
-## TODO
-
-* Documentation'da buy kismi guncellenecek.
-
-## Bug fixes
-
 ## Update
 
 * [Clean CSS](https://github.com/jakubpawlowicz/clean-css)
