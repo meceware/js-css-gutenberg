@@ -84,7 +84,7 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
 				$this->tag . '-sass-js',
 				plugins_url( 'dist/sass/sass.sync.js', __FILE__ ),
 				array(),
-				'0.10.13',
+				'0.11.0',
 				true
       );
 
