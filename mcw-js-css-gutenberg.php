@@ -4,7 +4,7 @@
  * Plugin URI: https://www.meceware.com/plugins/docs/custom-js-css-gutenberg/
  * Author: Mehmet Celik
  * Author URI: https://www.meceware.com/
- * Version: 1.0.0
+ * Version: 1.0.1
  * Description: Add custom Javascript and CSS code to the page using Gutenberg.
  * Text Domain: mcw_custom_js_css_gutenberg
 **/
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
 	class McwCustomJsAndCssGutenberg {
 		// Plugin version
-		private $version = '1.0.0';
+		private $version = '1.0.1';
 		// Tag
 		private $tag = 'mcw-custom-js-css-gutenberg';
 		// Gutenberg block name
@@ -84,7 +84,7 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
 				$this->tag . '-sass-js',
 				plugins_url( 'dist/sass/sass.sync.js', __FILE__ ),
 				array(),
-				'0.10.13',
+				'0.11.0',
 				true
       );
 
@@ -319,7 +319,7 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
 
       $css = '';
       foreach ( $styles as $style ) {
-        $css .= base64_decode( $style );
+        $css .= $this->Decode( $style );
       }
 
       if ( ! empty( $css ) ) {
@@ -338,7 +338,7 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
 
       $js = '';
       foreach ( $scripts as $script ) {
-        $js .= base64_decode( $script );
+        $js .= $this->Decode( $script );
       }
 
       if ( ! empty( $js ) ) {
@@ -361,7 +361,7 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
         if ( $enabled ) {
           $param = $this->GetFieldValue( $attr, $meta );
           if ( isset( $param ) && ! empty( $param ) ) {
-            $output[] = base64_decode( $param );
+            $output[] = $this->Decode( $param );
           }
         }
       }
@@ -380,10 +380,54 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
 
       $output = '';
       foreach ( $tags as $tag ) {
-        $output .= '<meta ' . base64_decode( $tag ) . '/>';
+        $output .= '<meta ' . $this->Decode( $tag ) . '/>';
       }
 
       echo $output;
+    }
+
+    private function Decode( $input ) {
+      $codes = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+
+      // Strip tags first
+      $input = strip_tags( $input );
+
+      // Check if input is null
+      if ( $input == null ) {
+        return '';
+      }
+
+      // Check if the string is valid
+      if ( strlen( $input ) % 4 != 0 ) {
+        return '';
+      }
+
+      $decoded[] = ( ( strlen( $input ) * 3 ) / 4 ) - ( strrpos( $input,'=' ) > 0 ? ( strlen( $input ) - strrpos( $input, '=' ) ) : 0 );
+      $inChars = str_split( $input );
+      $j = 0;
+      $b = array();
+      for ( $i = 0; $i < count( $inChars ); $i += 4 ) {
+        $b[ 0 ] = strpos( $codes, $inChars[ $i ] );
+        $b[ 1 ] = strpos( $codes, $inChars[ $i + 1 ] );
+        $b[ 2 ] = strpos( $codes, $inChars[ $i + 2 ] );
+        $b[ 3 ] = strpos( $codes, $inChars[ $i + 3 ] );
+        $decoded[ $j++ ] = ( ( $b[ 0 ] << 2 ) | ( $b[ 1 ] >> 4 ) );
+
+        if ( $b[ 2 ] < 64 ) {
+          $decoded[ $j++ ] = ( ( $b[ 1 ] << 4 ) | ( $b[ 2 ] >> 2 ) );
+          if ( $b[ 3 ] < 64 ) {
+            $decoded[ $j++ ] = ( ( $b[ 2 ] << 6 ) | $b[ 3 ] );
+          }
+        }
+      }
+
+      $decodedStr = '';
+      for( $i = 0; $i < count( $decoded ); $i++ )
+      {
+        $decodedStr .= chr( $decoded[ $i ] );
+      }
+
+      return $decodedStr;
     }
   }
 }

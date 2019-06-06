@@ -1,12 +1,8 @@
-## TODO
-
-* Documentation'da buy kismi guncellenecek.
-
-## Bug fixes
-
 ## Update
 
 * [Clean CSS](https://github.com/jakubpawlowicz/clean-css)
+
+Current: 4.2.1
 
 Download the git master branch. Extract to a folder. Open terminal inside
 
@@ -28,6 +24,8 @@ folder.
 
 * [SASS.js](https://github.com/medialize/sass.js/)
 
+Current: 0.11.0
+
 Download the git master branch. Copy
 ```
 sass.js/dist/sass.sync.js
@@ -39,6 +37,8 @@ dist/sass
 folder.
 
 * [Babel](https://github.com/babel/babel-standalone)
+
+Current: 6.26.0
 
 Check the dist and update the version at the dist folder.
 ```

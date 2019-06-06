@@ -20,3 +20,5 @@
 ## How To Use
 
 Please see the [documentation](https://www.meceware.com/plugins/docs/custom-js-css-gutenberg/).
+
+**[by meceware](https://www.meceware.com/)**
