@@ -16,6 +16,10 @@ def filterIgnored( ignore ):
 # Plugin folders
 dirPluginFolders = [
   {
+    'folder': 'Licensing',
+    'ignore':  None,
+  },
+  {
     'folder': 'dist',
     'ignore':  shutil.ignore_patterns( 'blocks.style.build.css' ),
   },
