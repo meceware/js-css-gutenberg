@@ -8,16 +8,16 @@ const {
 } = wp.element;
 
 const {
-	Button,
-	Modal,
+  Button,
+  Modal,
 } = wp.components;
 
 class ModalSettings extends Component {
   constructor() {
-		super( ...arguments );
-		this.state = {
-			isOpen: false,
-		};
+    super( ...arguments );
+    this.state = {
+      isOpen: false,
+    };
   }
 
   render() {

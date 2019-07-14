@@ -215,11 +215,6 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
       }
 
       return $this->blockAttributes;
-
-      $val =  isset( $this->blockAttributes[ $id ] ) ? $this->blockAttributes[ $id ] : $default;
-
-      // Return field value or default
-      return $val;
 		}
 
 		private function GetFieldValue( $attr, $id ) {

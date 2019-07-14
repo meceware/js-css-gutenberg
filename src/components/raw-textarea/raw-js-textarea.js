@@ -18,10 +18,10 @@ const {
 
 class RawJSTextareaControl extends Component {
   constructor() {
-		super( ...arguments );
-		this.state = {
-			err: false,
-		};
+    super( ...arguments );
+    this.state = {
+      err: false,
+    };
   }
 
   render() {
@@ -33,7 +33,9 @@ class RawJSTextareaControl extends Component {
     const setError = err => this.setState( { err: err } );
 
     const minify = ( js ) => {
-      if ( ! js ) return js;
+      if ( ! js ) {
+        return js;
+      }
 
       const result = uglify.minify( js );
 
@@ -62,7 +64,7 @@ class RawJSTextareaControl extends Component {
         try {
           setError( false );
           onParamUpdate( Babel.transform( js, { presets: [ [ 'es2015', { modules: false } ] ] } ).code );
-        } catch (ex) {
+        } catch ( ex ) {
           // console.error('babel error: ' + ex.message);
           setError( true );
           onParamUpdate( js );
@@ -101,8 +103,8 @@ class RawJSTextareaControl extends Component {
               isSmall
               isPrimary = { this.props.params.minEnabled }
               aria-pressed = { this.props.params.minEnabled }
-              onClick={ () => onMinifyToggle() }
-              >
+              onClick = { () => onMinifyToggle() }
+            >
               { this.props.minifyLabel }
             </Button>
             { Object.keys( jsStyleTypes ).map( key => (
@@ -112,20 +114,20 @@ class RawJSTextareaControl extends Component {
                 isSmall
                 isPrimary = { styleType === key }
                 aria-pressed = { styleType === key }
-                onClick={ () => onTypeChange( key ) }
-                >
+                onClick = { () => onTypeChange( key ) }
+              >
                 { jsStyleTypes[ key ] }
               </Button>
             ) ) }
           </ButtonGroup>
-          <div className = { classnames( 'mcw-textarea-comp-inner', { 'mcw-textarea-comp-error' : this.state.err } ) } >
-            <p className = { 'mcw-textarea-def' }>{ `<script type="text/javascript">` }</p>
+          <div className = { classnames( 'mcw-textarea-comp-inner', { 'mcw-textarea-comp-error': this.state.err } ) } >
+            <p className = { 'mcw-textarea-def' }>{ '<script type="text/javascript">' }</p>
             <TextareaControl
               rows = { 12 }
               value = { Base64.decode( this.props.js ) }
               onChange = { ( value ) => onJSChange( value ) }
             />
-            <p className = { 'mcw-textarea-def' }>{ `</script>` }</p>
+            <p className = { 'mcw-textarea-def' }>{ '</script>' }</p>
           </div>
         </div>
       </Fragment>
