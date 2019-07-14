@@ -1,6 +1,6 @@
 {
   "name": "mcw-js-css-gutenberg",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "private": true,
   "scripts": {
     "start": "cgb-scripts start",
