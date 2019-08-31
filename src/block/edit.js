@@ -27,16 +27,12 @@ const {
 } = wp.editor;
 
 const {
-	PanelBody,
-	TextControl,
+  PanelBody,
+  TextControl,
   ToggleControl,
 } = wp.components;
 
 class CustomJsAndCssEdit extends Component {
-  constructor() {
-		super( ...arguments );
-  }
-
   render() {
     const { attributes: {
       // Header Javascript
@@ -80,19 +76,19 @@ class CustomJsAndCssEdit extends Component {
       meta,
     }, setAttributes } = this.props;
 
-    const src = `
-  function deneme () {
-    var foo = 'bar'
-    var baz = 'qux'
-    this.foo = foo + baz
-  }
-  console.log('deneme');
-`;
+    // const src = `
+    //   function deneme () {
+    //     var foo = 'bar'
+    //     var baz = 'qux'
+    //     this.foo = foo + baz
+    //   }
+    //   console.log('deneme');
+    // `;
 
-  // const { code, error } = uglify.minify(src);
-  // console.log(code);
-  // console.log(this.props.attributes);
-  // Babel.transform(d, { presets: ['es2015'] }).code
+    // const { code, error } = uglify.minify(src);
+    // console.log(code);
+    // console.log(this.props.attributes);
+    // Babel.transform(d, { presets: ['es2015'] }).code
 
     const jsControls = (
       <PanelBody title = { __tr__( 'Javascript' ) } initialOpen = { false } >
@@ -114,8 +110,8 @@ class CustomJsAndCssEdit extends Component {
         />
         { ( jsHeaderEnable ) && (
           <ModalSettings
-            buttonText = { __tr__('Javascript Options (Head)') }
-            modalTitle = { __tr__('Javascript Options (Head)') }
+            buttonText = { __tr__( 'Javascript Options (Head)' ) }
+            modalTitle = { __tr__( 'Javascript Options (Head)' ) }
             modalButtonText = { __tr__( 'Save/Close' ) }
           >
             <BlockWithDescription description = { BlockAttributes.jsHeader.description } >
@@ -158,8 +154,8 @@ class CustomJsAndCssEdit extends Component {
         />
         { ( jsFooterEnable ) && (
           <ModalSettings
-            buttonText = { __tr__('Javascript Options (Footer)') }
-            modalTitle = { __tr__('Javascript Options (Footer)') }
+            buttonText = { __tr__( 'Javascript Options (Footer)' ) }
+            modalTitle = { __tr__( 'Javascript Options (Footer)' ) }
             modalButtonText = { __tr__( 'Save/Close' ) }
           >
             <BlockWithDescription description = { BlockAttributes.jsFooter.description } >
@@ -217,8 +213,8 @@ class CustomJsAndCssEdit extends Component {
         />
         { ( cssHeaderEnable ) && (
           <ModalSettings
-            buttonText = { __tr__('CSS Options (Head)') }
-            modalTitle = { __tr__('CSS Options (Head)') }
+            buttonText = { __tr__( 'CSS Options (Head)' ) }
+            modalTitle = { __tr__( 'CSS Options (Head)' ) }
             modalButtonText = { __tr__( 'Save/Close' ) }
           >
             <BlockWithDescription description = { BlockAttributes.cssHeader.description } >
@@ -261,8 +257,8 @@ class CustomJsAndCssEdit extends Component {
         />
         { ( cssFooterEnable ) && (
           <ModalSettings
-            buttonText = { __tr__('CSS Options (Footer)') }
-            modalTitle = { __tr__('CSS Options (Footer)') }
+            buttonText = { __tr__( 'CSS Options (Footer)' ) }
+            modalTitle = { __tr__( 'CSS Options (Footer)' ) }
             modalButtonText = { __tr__( 'Save/Close' ) }
           >
             <BlockWithDescription description = { BlockAttributes.cssFooter.description } >
@@ -311,8 +307,8 @@ class CustomJsAndCssEdit extends Component {
           <BlockWithDescription description = { BlockAttributes.meta.description } >
             <RawTextControl
               label = { BlockAttributes.meta.label }
-              beginning = { `<meta` }
-              ending = { `/>` }
+              beginning = { '<meta' }
+              ending = { '/>' }
               value = { Base64.decode( meta ) }
               onChange = { ( value ) => setAttributes( { meta: Base64.encode( value ) } ) }
             />

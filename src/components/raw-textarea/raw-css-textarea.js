@@ -18,10 +18,10 @@ const {
 
 class RawCSSTextareaControl extends Component {
   constructor() {
-		super( ...arguments );
-		this.state = {
-			err: false,
-		};
+    super( ...arguments );
+    this.state = {
+      err: false,
+    };
   }
 
   render() {
@@ -34,7 +34,9 @@ class RawCSSTextareaControl extends Component {
     const setError = err => this.setState( { err: err } );
 
     const minify = ( css ) => {
-      if ( ! css ) return css;
+      if ( ! css ) {
+        return css;
+      }
 
       const minified = new CleanCSS( {} ).minify( css );
       if ( minified.styles ) {
@@ -75,7 +77,7 @@ class RawCSSTextareaControl extends Component {
             setError( false );
             onParamUpdate( output.css );
           },
-          function( error ) {
+          function( /* error */ ) {
             // console.error( 'less error: ', error );
             setError( true );
             onParamUpdate( css );
@@ -115,8 +117,8 @@ class RawCSSTextareaControl extends Component {
               isSmall
               isPrimary = { this.props.params.minEnabled }
               aria-pressed = { this.props.params.minEnabled }
-              onClick={ () => onMinifyToggle() }
-              >
+              onClick = { () => onMinifyToggle() }
+            >
               { this.props.minifyLabel }
             </Button>
             { Object.keys( cssStyleTypes ).map( key => (
@@ -126,20 +128,20 @@ class RawCSSTextareaControl extends Component {
                 isSmall
                 isPrimary = { styleType === key }
                 aria-pressed = { styleType === key }
-                onClick={ () => onStyleChange( key ) }
-                >
+                onClick = { () => onStyleChange( key ) }
+              >
                 { cssStyleTypes[ key ] }
               </Button>
             ) ) }
           </ButtonGroup>
-          <div className = { classnames( 'mcw-textarea-comp-inner', { 'mcw-textarea-comp-error' : this.state.err } ) } >
-            <p className = { 'mcw-textarea-def' }>{ `<style type="text/css">` }</p>
+          <div className = { classnames( 'mcw-textarea-comp-inner', { 'mcw-textarea-comp-error': this.state.err } ) } >
+            <p className = { 'mcw-textarea-def' }>{ '<style type="text/css">' }</p>
             <TextareaControl
               rows = { 12 }
               value = { Base64.decode( this.props.css ) }
               onChange = { ( value ) => onCSSChange( value ) }
             />
-            <p className = { 'mcw-textarea-def' }>{ `</style>` }</p>
+            <p className = { 'mcw-textarea-def' }>{ '</style>' }</p>
           </div>
         </div>
       </Fragment>

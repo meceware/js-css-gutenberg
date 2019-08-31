@@ -4,7 +4,7 @@
  * Plugin URI: https://www.meceware.com/plugins/docs/custom-js-css-gutenberg/
  * Author: Mehmet Celik
  * Author URI: https://www.meceware.com/
- * Version: 1.0.2
+ * Version: 1.0.3
  * Description: Add custom Javascript and CSS code to the page using Gutenberg.
  * Text Domain: mcw_custom_js_css_gutenberg
 **/
@@ -215,11 +215,6 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
       }
 
       return $this->blockAttributes;
-
-      $val =  isset( $this->blockAttributes[ $id ] ) ? $this->blockAttributes[ $id ] : $default;
-
-      // Return field value or default
-      return $val;
 		}
 
 		private function GetFieldValue( $attr, $id ) {
