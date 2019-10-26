@@ -4,7 +4,7 @@
  * Plugin URI: https://www.meceware.com/plugins/docs/custom-js-css-gutenberg/
  * Author: Mehmet Celik
  * Author URI: https://www.meceware.com/
- * Version: 1.0.3
+ * Version: 1.0.4
  * Description: Add custom Javascript and CSS code to the page using Gutenberg.
  * Text Domain: mcw_custom_js_css_gutenberg
 **/
