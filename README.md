@@ -1,4 +1,4 @@
-# [Custom JS and CSS for Gutenberg](https://www.meceware.com/plugins/docs/custom-js-css-gutenberg/)
+# [Custom JS and CSS for Gutenberg](https://www.meceware.com/docs/custom-js-css-gutenberg/)
 
 * Easily add your code anywhere on your WordPress page.
 
@@ -19,6 +19,6 @@
 
 ## How To Use
 
-Please see the [documentation](https://www.meceware.com/plugins/docs/custom-js-css-gutenberg/).
+Please see the [documentation](https://www.meceware.com/docs/custom-js-css-gutenberg/).
 
 **[by meceware](https://www.meceware.com/)**

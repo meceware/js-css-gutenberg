@@ -27,7 +27,7 @@ class ModalSettings extends Component {
       <Fragment>
         <Button
           className = 'mcw-modal-button'
-          isDefault
+          isSecondary
           onClick = { () => this.setState( { isOpen: true } ) }
         >
           { this.props.buttonText }
@@ -43,7 +43,6 @@ class ModalSettings extends Component {
           >
             { this.props.children }
             <Button
-              isDefault
               isPrimary
               onClick = { () => this.setState( { isOpen: false } ) }
             >

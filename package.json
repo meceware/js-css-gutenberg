@@ -1,6 +1,6 @@
 {
   "name": "mcw-js-css-gutenberg",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "scripts": {
     "start": "cgb-scripts start",
@@ -8,8 +8,8 @@
     "eject": "cgb-scripts eject"
   },
   "dependencies": {
-    "cgb-scripts": "1.21.0",
-    "less": "^3.10.3",
+    "cgb-scripts": "1.23.0",
+    "less": "^3.11.1",
     "uglifyjs-browser": "^3.0.0",
     "classnames": "^2.2.6"
   }

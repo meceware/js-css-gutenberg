@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name: Custom JS and CSS for Gutenberg
- * Plugin URI: https://www.meceware.com/plugins/docs/custom-js-css-gutenberg/
+ * Plugin URI: https://www.meceware.com/docs/custom-js-css-gutenberg/
  * Author: Mehmet Celik
  * Author URI: https://www.meceware.com/
- * Version: 1.0.4
+ * Version: 1.0.5
  * Description: Add custom Javascript and CSS code to the page using Gutenberg.
  * Text Domain: mcw_custom_js_css_gutenberg
 **/
@@ -84,7 +84,7 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
 				$this->tag . '-sass-js',
 				plugins_url( 'dist/sass/sass.sync.js', __FILE__ ),
 				array(),
-				'0.11.0',
+				'0.11.1',
 				true
       );
 
@@ -92,7 +92,7 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
 				$this->tag . '-babel-js',
 				plugins_url( 'dist/babel/babel.min.js', __FILE__ ),
 				array(),
-				'6.26.0',
+				'7.8.8',
 				true
 			);
 
@@ -100,7 +100,7 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
 				$this->tag . '-clean-css-js',
 				plugins_url( 'dist/clean-css/cleancss-browser.js', __FILE__ ),
 				array(),
-				'4.2.1',
+				'4.2.3',
 				true
 			);
 
