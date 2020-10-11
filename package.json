@@ -8,8 +8,8 @@
     "eject": "cgb-scripts eject"
   },
   "dependencies": {
-    "cgb-scripts": "1.23.0",
-    "less": "^3.11.1",
+    "cgb-scripts": "1.23.1",
+    "less": "^3.12.2",
     "uglifyjs-browser": "^3.0.0",
     "classnames": "^2.2.6"
   }
