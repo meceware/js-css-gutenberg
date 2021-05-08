@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "cgb-scripts": "1.23.1",
-    "less": "^3.12.2",
-    "uglifyjs-browser": "^3.0.0",
-    "classnames": "^2.2.6"
+    "classnames": "^2.3.1",
+    "less": "^4.1.1",
+    "uglifyjs-browser": "^3.0.0"
   }
 }

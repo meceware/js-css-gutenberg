@@ -248,7 +248,7 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
 
     private function EnqueueStyles( $id, $enable, $url, $dep ) {
       // Do not enqueue on admin
-      if ( is_admin() ) {
+      if ( is_admin() || is_archive() ) {
         return;
       }
 
@@ -264,7 +264,7 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
 
     private function EnqueueScripts( $id, $enable, $url, $dep, $footer ) {
       // Do not enqueue on admin
-      if ( is_admin() ) {
+      if ( is_admin() || is_archive() ) {
         return;
       }
 
@@ -305,7 +305,7 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
 
     private function EchoCSSStyles( $enable, $params ) {
       // Do not enqueue on admin
-      if ( is_admin() ) {
+      if ( is_admin() || is_archive() ) {
         return;
       }
 
@@ -324,7 +324,7 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
 
     private function EchoJSScripts( $enable, $params ) {
       // Do not enqueue on admin
-      if ( is_admin() ) {
+      if ( is_admin() || is_archive() ) {
         return;
       }
 
@@ -366,7 +366,7 @@ if ( ! class_exists('McwCustomJsAndCssGutenberg') ) {
 
     private function EchoMetaTags( $enable, $meta ) {
       // Do not enqueue on admin
-      if ( is_admin() ) {
+      if ( is_admin() || is_archive() ) {
         return;
       }
 
